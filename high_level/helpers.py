@@ -89,6 +89,7 @@ def is_validator(node: NodeIdentity, validatorBalances: ValidatorBalances) -> bo
     """
     It checks whether a `node` is a validator.
     """
+    ### Do we need to constraint that the balance of a validator is not negative?
     return pmap_has(validatorBalances, node)
 
 
