@@ -233,6 +233,7 @@ def on_vote_received(vote: SignedVoteMessage, node_state: NodeState) -> NewNodeS
     """
     A validator, upon receiving a `vote` at any moment, adds it to its local buffer `node_state.buffer_votes`.    
     """
+    ### Should an honest validator re-broadcast received vote messages?
     return NewNodeStateAndMessagesToTx(
         state=node_state.set(
             buffer_vote=pset_add(
