@@ -17,6 +17,14 @@ def get_phase_from_time(time: int, node_state: NodeState) -> NodePhase:
     """
     It calculates the phase within a slot based on a given `time` and the node's configuration settings. 
     """
+    """
+    Why not
+    if time_in_slot < node_state.configuration.delta:
+        return NodePhase.PROPOSE
+    elif time_in_slot < 2 * node_state.configuration.delta:
+        return NodePhase.VOTE
+    ...
+    """
     time_in_slot = time % (4 * node_state.configuration.delta)
 
     if time_in_slot >= 3 * node_state.configuration.delta:
