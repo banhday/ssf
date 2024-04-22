@@ -184,6 +184,12 @@ def on_received_propose(propose: SignedProposeMessage, node_state: NodeState) ->
     A validator merges the proposer's view with its own local view upon receiving a proposal within the timeframe from 
     4Δt to 4Δt+Δ, preparing it for the phase NodePhase.VOTE.    
     """
+    """
+    How can we ensure that node_state.current_phase is PROPOSE when
+        - on_received_propose is triggered, and 
+        - time in in [ 4 \Delta t, 4 \Delta t + \Delta) ?
+    It might happen that on_received_propose is triggered at 4 \Delta t but on_tick has not been executed at 4 \Delta t.
+    """
     node_state = node_state.set(
         buffer_blocks=pmap_set(
             node_state.buffer_blocks,
