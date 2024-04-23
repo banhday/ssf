@@ -648,6 +648,10 @@ def execute_view_merge(node_state: NodeState) -> NodeState:
             node_state.view_votes,
             node_state.buffer_votes
         ),
+        """
+        - Which lines in the pseudocode of Algo. 2 refer to this step?
+        - Do we need to get votes included in all previous blocks? Many votes should be expired.
+        """
         get_votes_included_in_blocks(get_all_blocks(node_state)))
     )
     node_state = node_state.set(buffer_vote=pset_get_empty())
