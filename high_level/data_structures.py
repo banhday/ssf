@@ -83,7 +83,7 @@ class Configuration():
     eta: int
     k: int
 
-
+### Why does NodeState not have a canonical chain ch_i and the current round r?
 class NodeState(PRecord):
     configuration: Configuration = field(type=Configuration)
     identity: NodeIdentity = field(type=NodeIdentity)
