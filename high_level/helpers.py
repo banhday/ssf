@@ -59,6 +59,7 @@ def get_block_from_hash(block_hash: Hash, node_state: NodeState) -> Block:
     """
     It retrieves the block associated to a `block_hash`.
     """
+    # As pmap_get has a similar constraint Requires on the source, is the following constraint Requires still necessary?
     Requires(has_block_hash(block_hash, node_state))
     return pmap_get(node_state.view_blocks, block_hash)
 
