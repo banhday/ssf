@@ -27,7 +27,7 @@ def pset_get_empty() -> PSet[T1]:
 def pset_merge(a: PSet[T1], b: PSet[T1]) -> PSet[T1]:
     return a.union(b)
 
-
+# What is the use of s?
 def pset_merge_flatten(s: PSet[PSet[T1]]) -> PSet[T1]:
     return reduce(
         lambda a, b: a.union(b),
